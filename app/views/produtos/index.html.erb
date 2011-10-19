@@ -1,0 +1,29 @@
+<h1>
+  Listagem de produtos
+</h1>
+
+<p>
+  Aqui tem produtos!
+</p>
+
+<table border=1>
+    <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Preço</th>
+        </tr>
+     </thead>
+
+    <tbody>
+
+        <% @produtos.each do | produto | %> <!-- Sem igual, nao imprime -->
+        <tr>
+            <td> <%= link_to produto.nome, produto_path(produto), :class => 'link' %> </td> <!-- Imprime o resultado do codigo ruby -->
+            <td> <%= number_to_currency produto.preco %> </td> <!-- Helper com apenas 1 parametro nao necessita parenteses -->
+        </tr>
+        <tr>
+          <% end %>
+        </tr>
+
+    </tbody>
+</table>
