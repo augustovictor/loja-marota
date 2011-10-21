@@ -8,7 +8,28 @@
 </head>
 <body>
 
-<%= yield %>
+    <!-- Inicio container -->
+    <div class="container">
+
+      <% [:success, :warning, :error, :info].each do | key | %>
+
+          <% unless flash[key].blank? %>
+
+              <div class="alert-message <%= key %>">
+                  <a class="close" href="#">×</a>
+                  <p>
+                      <%= flash[key] %>
+                  </p>
+              </div>
+
+          <% end %>
+
+      <% end %>
+
+      <%= yield %>
+
+    </div>
+    <!-- Fim container -->
 
 </body>
 </html>
