@@ -7,6 +7,7 @@ gem 'rails', '3.1.0'
 
 gem 'less-rails-bootstrap', '1.3.3'
 gem 'mysql2'
+gem 'haml'
 
 
 # Gems used only for assets and not required

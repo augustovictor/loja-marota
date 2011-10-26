@@ -14,6 +14,15 @@
         <tr>
             <td> <%= link_to produto.nome, produto_path(produto), :class => 'link' %> </td> <!-- Imprime o resultado do codigo ruby -->
             <td> <%= number_to_currency produto.preco %> </td> <!-- Helper com apenas 1 parametro nao necessita parenteses -->
+            <td>
+                <%= form_tag itens_url do %>
+
+                    <%= hidden_field_tag :produto_id, produto.id %>
+                    <%= text_field_tag :quantidade, 1 %>
+                    <%= submit_tag 'Adicionar', :class => 'btn primary' %>
+
+                <% end %>
+            </td>
         </tr>
         <tr>
           <% end %>
