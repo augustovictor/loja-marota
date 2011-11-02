@@ -4,6 +4,17 @@ class ItensController < ApplicationController
 
   end
 
+  def atualizar_quantidades
+    pedido_atual.update_attributes(params[:pedido])
+
+    respond_to do |format|
+      format.html do
+        flash[:success] = "Quantidades atualizadas com sucesso!"
+        redirect_to itens_url
+      end
+    end
+  end
+
   def create
 
     if pedido_atual.new_record?

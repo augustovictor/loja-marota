@@ -1,0 +1,9 @@
+%h1 Criar/Atualizar produto
+
+= admin_produto_form( @produto ) do |f|
+
+  = f.text_field :nome
+  = f.text_field :preco
+  = f.text_area :descricao
+
+  %p= f.submit 'Enviar'
