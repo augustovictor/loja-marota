@@ -1,5 +1,5 @@
 #encoding utf-8
-class ProdutosController <ApplicationController
+class ProdutosController < ApplicationController
 
   def index
     @produtos = Produto.all

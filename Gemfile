@@ -5,13 +5,19 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'haml'
+gem 'haml' #metodo de escrita html
 
-gem 'less-rails-bootstrap', '1.3.3'
+gem 'less-rails-bootstrap', '1.3.3' #bootstrap twitter
 
-gem 'mysql2'
+gem 'mysql2' #banco de dados
 
-gem 'will_paginate'
+gem 'sunspot_rails' #ferramenta para busca textual no banco de dados
+
+gem 'will_paginate' #pagicaçao
+
+group :test do #executada quando esta no modo test
+  gem 'rspec-rails' #testes
+end
 
 
 # Gems used only for assets and not required
