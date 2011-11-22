@@ -1,9 +1,24 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  include AutorizacaoControllerHelper #metodos disponiveis no AutorizacaoControllerHelper estao disponiveis aqui
+
   helper_method :pedido_atual
 
+  before_filter :selecionar_lingua
+
   protected #definir método como protected ou private, quando nao for uma açao
+
+  def selecionar_lingua
+    I18n.locale = session[:lingua] ||= 'pt-BR' #caso a lingua ja esteja
+=begin
+    I18n.current_locale = if session[:lingua].blank?
+                            'pt-br'
+                          else
+                            session[:lingua]
+                          end
+=end
+  end
 
   def pedido_atual
 

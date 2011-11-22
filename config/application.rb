@@ -25,7 +25,7 @@ module Loja
     # Activate observers that should always be running.
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 
-    # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
+    # Set Time.zone default to the specified zone and make Active Record auto-convert_file to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
 
@@ -37,7 +37,7 @@ module Loja
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password, :senha]
+    config.filter_parameters += [:password, :senha, :senha_confirmation]
 
     # Enable the asset pipeline
     config.assets.enabled = true

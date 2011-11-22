@@ -1,9 +1,11 @@
-%h1 Criar/Atualizar produto
+%h1
+  =t('formularios.criar_atualizar', :tipo => Produto.model_name.human)
 
-= admin_produto_form( @produto ) do |f|
+= admin_form_for( @produto ) do |f|
 
   = f.text_field :nome
   = f.text_field :preco
+  = f.select       :categoria_id, Categoria.all.map { |c| [c.nome, c.id] }, :include_blank => "Selecione a categoria"
   = f.text_area :descricao
 
   .actions

@@ -1,6 +1,6 @@
 class BootstrapFormBuilder < ActionView::Base::FormBuilder
 
-  [ :text_field, :text_area ].each do |method|
+  [ :text_field, :text_area, :password_field, :check_box, :select ].each do |method|
     define_method(method) do |name, *args|
       wrap(name, super(name, *args))
     end
@@ -19,7 +19,7 @@ class BootstrapFormBuilder < ActionView::Base::FormBuilder
 
     markup = %Q!
       <div class="#{classes.join(' ')}">
-        <label> #{name}</label>
+        <label> #{self.object.class.human_attribute_name( name )}</label>
         <div class="input">
           #{content}
           #{error_message}

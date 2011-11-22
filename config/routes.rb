@@ -51,15 +51,22 @@ Loja::Application.routes.draw do
   # root :to => 'welcome#index'
 
   root :to => 'produtos#index'
+
   resources :produtos
+  resource :usuario #fazer rake routes apos inserir resources
+  resource :session #um resource = um objeto deste tipo
+
   resources :itens do
     collection do
       put :atualizar_quantidades
     end
   end
 
+  resources :linguas
+
   namespace :admin do
     resources :produtos
+    resources :categorias
   end
 
   # See how all your routes lay out with "rake routes"

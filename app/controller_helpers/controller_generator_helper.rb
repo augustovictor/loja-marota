@@ -8,7 +8,7 @@ module ControllerGeneratorHelper
   module ClassMethods
 
     def gerar_controller( clazz )
-
+      singular = clazz.name.underscore
       plural = clazz.name.underscore.pluralize
 
       index = %Q!
@@ -28,7 +28,7 @@ module ControllerGeneratorHelper
 
           def create
             if @#{singular}.update_attributes( params[:#{singular}] )
-              flash[:success] = '#{clazz.modal_name.human} criado/atualizado com sucesso\!' #exibe mensagem
+              flash[:success] = '#{clazz.model_name.human} criado/atualizado com sucesso\!' #exibe mensagem
               redirect_to admin_#{plural}_url #redireciona para url
             else
               new
@@ -44,8 +44,6 @@ module ControllerGeneratorHelper
           end
 
       !
-
-      puts "Método index -> \n#{index}"
 
       class_eval index
 

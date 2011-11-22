@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111020230356) do
+ActiveRecord::Schema.define(:version => 20111109005525) do
+
+  create_table "categorias", :force => true do |t|
+    t.string "nome",      :null => false
+    t.text   "descricao"
+  end
+
+  add_index "categorias", ["nome"], :name => "index_categorias_on_nome", :unique => true
 
   create_table "itens", :force => true do |t|
     t.integer "pedido_id",                 :null => false
@@ -25,12 +32,29 @@ ActiveRecord::Schema.define(:version => 20111020230356) do
     t.string   "estado",     :default => "carrinho", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "usuario_id"
   end
 
+  add_index "pedidos", ["usuario_id"], :name => "index_pedidos_on_usuario_id"
+
   create_table "produtos", :force => true do |t|
-    t.string   "nome",                                      :null => false
+    t.string   "nome",                                        :null => false
     t.text     "descricao"
-    t.decimal  "preco",      :precision => 10, :scale => 2, :null => false
+    t.decimal  "preco",        :precision => 10, :scale => 2, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "categoria_id"
+  end
+
+  add_index "produtos", ["categoria_id"], :name => "index_produtos_on_categoria_id"
+
+  create_table "usuarios", :force => true do |t|
+    t.string   "email",                               :null => false
+    t.boolean  "administrador",    :default => false, :null => false
+    t.string   "nome",                                :null => false
+    t.string   "salt",                                :null => false
+    t.string   "senha_em_hash",                       :null => false
+    t.datetime "ultimo_acesso_em"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

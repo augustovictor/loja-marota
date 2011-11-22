@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+file = ARGV[0];
+
+puts "Processing #{file}";
+
+text = IO.read( file );
+
+File.open( file, 'w' ) do |f|;
+  f.write( text.gsub( "\r", "\n" ) );
+end;

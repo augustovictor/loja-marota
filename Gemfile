@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.1'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -17,6 +17,11 @@ gem 'will_paginate' #pagicaçao
 
 group :test do #executada quando esta no modo test
   gem 'rspec-rails' #testes
+  gem 'capybara'
+  gem 'shoulda'
+  gem 'factory_girl'
+  #Jenkins - Servidor de testes. Toda vez que ha um commit, o servidor roda todos os testes.
+  gem 'ZenTest' #gerramenta autotest (fica rodando em loop infinito os seus testes. Conforme o desenvolvimento da app, os testes sao executados)
 end
 
 
