@@ -19,6 +19,10 @@ group :development do
   gem 'capistrano' #para dar deploy para o servidor de producao
 end
 
+group :production do
+  gem 'unicorn'
+end
+
 group :test do #executada quando esta no modo test
   gem 'rspec-rails' #testes
   gem 'capybara'
