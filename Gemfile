@@ -15,6 +15,10 @@ gem 'sunspot_rails' #ferramenta para busca textual no banco de dados
 
 gem 'will_paginate' #pagicaçao
 
+group :development do
+  gem 'capistrano' #para dar deploy para o servidor de producao
+end
+
 group :test do #executada quando esta no modo test
   gem 'rspec-rails' #testes
   gem 'capybara'
