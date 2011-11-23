@@ -18,8 +18,8 @@
                 %li== Seja bem-vindo, #{usuario_atual.nome}
                 %li= link_to "Logoff", session_url, :method => :delete, :confirm => "Deseja sair?"
               - else
-                = link_to "Crie sua conta", new_usuario_url
-                = link_to "Faça login", new_session_url
+                %li= link_to "Crie sua conta", new_usuario_url
+                %li= link_to "Faça login", new_session_url
               - unless pedido_atual.itens.blank?
                 %li= link_to 'Veja o seu carrinho', itens_path
 
